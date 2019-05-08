@@ -1,7 +1,7 @@
 PLUGIN_NAME = maaso/moosefs-volume-plugin
 PLUGIN_TAG ?= latest
 
-all: clean rootfs create
+all: clean rootfs create enable
 
 clean:
 	@echo "### rm ./plugin"
