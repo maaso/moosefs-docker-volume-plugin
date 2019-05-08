@@ -9,25 +9,30 @@ FROM ubuntu:18.04
 ####
 RUN apt-get update
 RUN apt-get install --yes wget
-RUN wget -qO- https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN wget -qO- https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install --yes nodejs
-RUN apt-get install --yes build-essential
 
 
 ####
-# Install LizardFS client
+# Install build tools
 ####
-RUN apt-get update && \
-    apt-get install -y lizardfs-client && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get install --yes build-essential libpcap-dev zlib1g-dev libfuse-dev pkg-config fuse git
+
+
+####
+# Build MooseFS client from source
+####
+RUN git clone https://github.com/moosefs/moosefs.git /moosefs
+WORKDIR /moosefs
+RUN ./linux_build.sh
+RUN make install
 
 
 ####
 # Install Docker volume driver API server
 ####
 # Create directories for mounts
-RUN mkdir -p /mnt/lizardfs
+RUN mkdir -p /mnt/moosefs
 RUN mkdir -p /mnt/docker-volumes
 
 # Copy in package.json
@@ -42,7 +47,7 @@ RUN npm install
 # Set Configuration Defaults
 ENV HOST=mfsmaster \
     PORT=9421 \
-    ALIAS=lizardfs \
+    ALIAS=moosefs \
     ROOT_VOLUME_NAME="" \
     MOUNT_OPTIONS="" \
     REMOTE_PATH=/docker/volumes \
