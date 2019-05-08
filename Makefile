@@ -1,4 +1,4 @@
-PLUGIN_NAME = kadimasolutions/lizardfs-volume-plugin
+PLUGIN_NAME = maaso/moosefs-volume-plugin
 PLUGIN_TAG ?= latest
 
 all: clean rootfs create
