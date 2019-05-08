@@ -1,7 +1,7 @@
 {
-  "name": "docker-plugin_lizardfs",
+  "name": "moosefs-docker-volume-plugin",
   "version": "1.0.0",
-  "description": "Docker volume driver plugin for LizardFS",
+  "description": "Docker volume driver plugin for MooseFS",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://phab.kadima.solutions/diffusion/DPLFS/docker-plugin_lizardfs.git"
+    "url": "https://github.com/maaso/moosefs-docker-volume-plugin.git"
   },
   "keywords": [
-    "LizardFS",
+    "MooseFS",
     "Docker"
   ],
-  "author": "Zicklag <zicklag@katharostech.com>",
+  "author": "Maarten Somers <maarten.somers@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@godaddy/terminus": "^2.2.0",
