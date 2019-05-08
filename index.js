@@ -77,7 +77,7 @@ log.info('Starting up MooseFS volume plugin');
 // Express webserver and middleware
 //
 
-var app = express();
+let app = express();
 // JSON body parser
 app.use(express.json({type: () => true}));
 
@@ -170,7 +170,7 @@ app.post('/VolumeDriver.Create', function (req, res) {
 
   if (volumeName === rootVolumeName) {
     // You cannot create a volume with the same name as the root volume.
-    log.warn("Tried to create a volume with same name as root volume. Ignoring request.")
+    log.warn("Tried to create a volume with same name as root volume. Ignoring request.");
 
     // Return without doing anything.
     res.json({})
@@ -247,7 +247,7 @@ app.post('/VolumeDriver.Mount', function (req, res) {
     // Add the container to the list of containers that have mounted this volume
     mountedVolumes[volumeName].push(mountId);
 
-    // Return the mountpoint
+    // Return the mount point
     res.json({
       Mountpoint: hostMountPoint
     })
@@ -255,7 +255,7 @@ app.post('/VolumeDriver.Mount', function (req, res) {
   // If the volume has not been mounted yet
   } else {
     try {
-      // Create volume mountpoint
+      // Create volume mount point
       fs.ensureDirSync(containerMountPoint);
 
       let mount_remote_path = "";
