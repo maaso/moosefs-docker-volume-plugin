@@ -1,5 +1,5 @@
 {
-  "description": "LizardFS volume plugin for Docker",
+  "description": "MooseFS volume plugin for Docker",
   "documentation": "https://docs.docker.com/engine/extend/plugins/",
   "workdir": "/project",
   "entrypoint": [
@@ -58,7 +58,7 @@
     }
   ],
   "interface": {
-    "socket": "lizardfs.sock",
+    "socket": "moosefs.sock",
     "types": [
       "docker.volumedriver/2.0"
     ]
