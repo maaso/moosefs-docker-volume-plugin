@@ -4,4 +4,4 @@ docker run -it --rm --privileged \
 -e https_proxy="$https_proxy" \
 -e no_proxy="$no_proxy" \
 -v $(pwd)/plugin:/plugin \
-lizardfs-volume-plugin_test $@
+moosefs-volume-plugin_test $@
