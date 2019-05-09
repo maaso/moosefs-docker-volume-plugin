@@ -1,3 +1,4 @@
+# This repository is work-in-progress and not suited for use
 # MooseFS Docker Plugin
 
 A Docker volume driver plugin for mounting a [MooseFS](https://moosefs.com) filesystem. Allows you to transparently provide storage for your Docker containers using MooseFS. 
