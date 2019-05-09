@@ -29,6 +29,13 @@ RUN make install
 
 
 ####
+# Remove build tools
+####
+RUN apt-get purge --yes build-essential pkg-config
+RUN apt-get autoremove --yes
+
+
+####
 # Install Docker volume driver API server
 ####
 # Create directories for mounts
