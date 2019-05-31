@@ -1,5 +1,5 @@
 PLUGIN_NAME = maaso/moosefs-volume-plugin
-PLUGIN_TAG ?= latest
+PLUGIN_TAG ?= 3.0.105
 
 all: clean rootfs create enable
 
