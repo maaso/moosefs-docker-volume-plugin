@@ -4,7 +4,7 @@
 const fs = require('fs-extra');
 const ls = require('ls');
 const path = require('path');
-const childProcess = require('child_process');
+const { execFileSync } = require('child_process');
 
 const http = require('http');
 const terminus = require('@godaddy/terminus');
@@ -107,7 +107,7 @@ app.use(function (req, res, next) {
 
     try {
       // Mount MooseFS remote path
-      childProcess.execFileSync(
+      execFileSync(
         'mfsmount',
         [
           volumeRoot,
