@@ -16,7 +16,7 @@ RUN apt-get install --yes nodejs
 ####
 # Install build tools
 ####
-RUN apt-get install --yes build-essential libpcap-dev zlib1g-dev libfuse-dev pkg-config fuse git
+RUN apt-get install --yes build-essential libpcap-dev zlib1g-dev libfuse-dev pkg-config fuse git libtool
 
 
 ####
@@ -24,6 +24,8 @@ RUN apt-get install --yes build-essential libpcap-dev zlib1g-dev libfuse-dev pkg
 ####
 RUN git clone https://github.com/moosefs/moosefs.git /moosefs
 WORKDIR /moosefs
+RUN git checkout v3.0.105
+RUN autoreconf -f -i
 RUN ./linux_build.sh
 RUN make install
 
